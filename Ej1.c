@@ -51,9 +51,10 @@ void main()
 				  }
 			  	  for(int i=0;i<n;i++){
 					  printf("%d ",V[i]);
-				  }	  
+				  }
+				  puts("\nFin");	  
 				  break;
-			case 'd': printf("\nDescendente");
+			case 'd': printf("\nVector ordenado descendente\n");
 				  //Ordenamiento descendente
 				  int max;
 				  for(i=0;i<n-1;i++){
