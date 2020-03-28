@@ -32,7 +32,9 @@ void main()
 	do{
 		printf("\nIngrese 'a' para mostrar el vector en orden ascendente");
 		printf("\nIngrese 'd' para mostrar el vector en orden descendente\n");
+		do{
 		letra=getchar();
+		}while(letra!='a' && letra!='d');
 		//Inicio de las opciones
 		switch(letra){
 			case 'a': printf("\nVector ordenado ascendente\n");
