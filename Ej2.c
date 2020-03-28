@@ -30,23 +30,24 @@ void main()
 	}
 	//Incio del ordenamiento del vector por el metodo de seleccion
 	//Se declaran las variables a utilizar
-	int j,min;
+	int j,k,min;
 	//Inicio de las pasadas
-	for(i=0;i<4;i++){
+	for(k=0;k<4;k++){
 		//Inicio de exploracion en i
-		min=i;
-		for(j=i+1;j<n;j++)
-			if(Vec[j]<Vec[min]);
-			min=j;
-		if(i!=min){
-			int l=Vec[i];
-			Vec[i]=Vec[min];
-			Vec[min]=l;
+		i=k;
+		min=Vec[k];
+		for(j=k+1;j<5;j++){
+			if(Vec[j]<min){
+			i=j;
+			min=Vec[i];}
 		}
+			Vec[i]=Vec[k];
+			Vec[k]=min;
 	}
 	puts("\nVector Ordenado");
 	for(i=0;i<5;i++){
 		printf("%d ",Vec[i]);
 	}
+	puts("\nFin");
 }
 
