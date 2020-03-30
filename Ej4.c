@@ -101,9 +101,27 @@ void main()
 	}
 	
 	//Multiplicacion de matrices
-	int MUL[3][3];
-	//se realiza la multiplicacion de matrices
-	
+	//Multiplicacion de matrices
+        int k;
+        int C[i][i];
+        //se realiza la multiplicacion de matrices
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        C[i][j]=0;
+                        for(k=0;k<3;k++){
+                                C[i][j]+=(matA[i][k]*matB[k][j]);
+                                        }
+                                }
+        }
+        //se presenta el resultado
+        puts("\nMatriz multiplicacion");
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        printf("%d ",C[i][j]);
+                                 }
+
+                printf("\n");
+        }	
 
 	//Determinante de matA
 	int detA;
