@@ -181,11 +181,18 @@ void main()
 			mata3[2][j]=(mata2[2][1]*mata2[1][j])-mata2[2][j];
 		}
         }
+	//5to cambio: Cuarto cambio en la tercera fila
+	float mata4[3][3];
+	for(j=0;j<3;j++){
+                mata4[0][j]=mata3[0][j];
+                mata4[1][j]=mata3[1][j];
+                mata4[2][j]=mata3[2][j]/mata3[2][2];
+        }
         //se muestra la matriz
         puts("\nReduccion Gauss matA");
         for(i=0;i<3;i++){
                 for(j=0;j<3;j++)
-                        printf("%f ",mata3[i][j]);
+                        printf("%f ",mata4[i][j]);
                 printf("\n");
         }
 
@@ -230,37 +237,44 @@ void main()
 			matb3[2][j]=(matb2[2][1]*matb2[1][j])-matb2[2][j];
 		}
         }
-	//5to cambio: Tercer cambio en la segunda fila y primera fila
-	float matb4[3][3];
-	for(j=0;j<3;j++){
-                if(matb3[3][3]<0){
-			matb4[0][j]=(matb3[0][2]*matb3[2][j])+matb3[0][j];
-		}else{
-			matb4[0][j]=(matb3[0][2]*matb3[2][j])-matb3[0][j];
-		}
-                if(matb3[1][2]<0){
-			matb4[1][j]=(matb3[1][2]*matb3[2][j])+matb3[1][j];
-		}else{
-			matb4[1][j]=(matb3[1][2]*matb3[2][j])-matb3[1][j];
-		}
-                matb4[2][j]=matb3[2][j];
+	//5to cambio: Cuarto cambio en la tercera fila
+        float matb4[3][3];
+        for(j=0;j<3;j++){
+                matb4[0][j]=matb3[0][j];
+                matb4[1][j]=matb3[1][j];
+                matb4[2][j]=matb3[2][j]/matb3[2][2];
         }
-	//6to cambio: Cuarto cambio en la primera fila
+	//6to cambio: Tercer cambio en la segunda fila y primera fila
 	float matb5[3][3];
 	for(j=0;j<3;j++){
-                if(matb4[0][1]<0){
-			matb5[0][j]=(matb4[0][1]*matb3[1][j])+matb3[0][j];
+                if(matb4[0][2]<0){
+			matb5[0][j]=(matb4[0][2]*matb4[2][j])+matb4[0][j];
 		}else{
-			matb5[0][j]=(matb4[0][1]*matb3[1][j])-matb3[0][j];
+			matb5[0][j]=(matb4[0][2]*matb4[2][j])-matb4[0][j];
 		}
-                matb5[1][j]=matb4[1][j];
+                if(matb4[1][2]<0){
+			matb5[1][j]=(matb4[1][2]*matb4[2][j])+matb4[1][j];
+		}else{
+			matb5[1][j]=(matb4[1][2]*matb4[2][j])-matb4[1][j];
+		}
                 matb5[2][j]=matb4[2][j];
+        }
+	//7mo cambio: Cuarto cambio en la primera fila
+	float matb6[3][3];
+	for(j=0;j<3;j++){
+                if(matb5[0][1]<0){
+			matb6[0][j]=(matb5[0][1]*matb5[1][j])+matb5[0][j];
+		}else{
+			matb6[0][j]=(matb5[0][1]*matb5[1][j])-matb5[0][j];
+		}
+                matb6[1][j]=matb5[1][j];
+                matb6[2][j]=matb5[2][j];
         }
         //se muestra la matriz
         puts("\nReduccion Gauss-Jordan matB");
         for(i=0;i<3;i++){
                 for(j=0;j<3;j++)
-                        printf("%f ",matb5[i][j]);
+                        printf("%f ",matb6[i][j]);
                 printf("\n");
 	}
 }
