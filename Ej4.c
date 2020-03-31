@@ -28,28 +28,32 @@ void main()
 	//Se solicita al usuario ingrese los valores para las matrices
 	//Ingreso de valores de matA
 	puts("\nValores de matA");
-	for(i=0;i<3;i++)
+	for(i=0;i<3;i++){
 		for(j=0;j<3;j++){
 			scanf("%d",&matA[i][j]);
 		}
+	}
 	//Matriz matA
 	puts("\nmatA");
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			printf("%d ",matA[i][j]);
+		}
 		printf("\n");
 	}
 	//Ingreso de valores de matB
 	puts("\nValores de matB");
-	for(i=0;i<3;i++)
+	for(i=0;i<3;i++){
 		for(j=0;j<3;j++){
 			scanf("%d",&matB[i][j]);
 		}
+	}
 	//Matriz matB
 	puts("\nmatB");
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			printf("%d ",matB[i][j]);
+		}
 		printf("\n");
 	}
 	
@@ -59,14 +63,16 @@ void main()
 	int MULC[3][3];
 	//se realiza la la multiplicacion c*matA
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			MULC[i][j]=matA[i][j]*c;
+		}
 	}
 	//se muestra la matriz
 	puts("\nMatriz constante*matA");
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			printf("%d ",MULC[i][j]);
+		}
 		printf("\n");
 	}
 	
@@ -74,14 +80,16 @@ void main()
 	int SUM[3][3];
 	//se realiza la suma de matrices matA+matB
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 		SUM[i][j]=matA[i][j]+matB[i][j];
+		}
 	}
 	//se muestra la matriz suma
 	puts("\nMatriz suma");
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			printf("%d ",SUM[i][j]);
+		}
 		printf("\n");
 	}
 	
@@ -89,14 +97,16 @@ void main()
 	int RES[3][3];
 	//se realiza la resta de matrices matA-matB
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			RES[i][j]=matA[i][j]-matB[i][j];
+		}
 	}
 	//se muestra la matriz resta
 	puts("\nMatriz resta");
 	for(i=0;i<3;i++){
-		for(j=0;j<3;j++)
+		for(j=0;j<3;j++){
 			printf("%d ",RES[i][j]);
+		}
 		printf("\n");
 	}
 	
@@ -138,7 +148,62 @@ void main()
 	}
 	
 	//Inversa de matA
+        float matAI[3][3];
+        //
+        //Calcula la matriz adjunta de matA
+        //Calcular los cofactores de matA
+        int a,b,d,e,f,g,h,u;
+	a=(matA[1][1]*matA[2][2])-(matA[1][2]*matA[2][1]);
+        b=(matA[1][2]*matA[2][0])-(matA[1][0]*matA[2][2]);
+        c=(matA[1][0]*matA[2][1])-(matA[1][1]*matA[2][0]);
+        d=(matA[0][2]*matA[2][1])-(matA[0][1]*matA[2][2]);
+        e=(matA[0][0]*matA[2][2])-(matA[0][2]*matA[2][0]);
+        f=(matA[0][1]*matA[2][0])-(matA[0][0]*matA[2][1]);
+        g=(matA[0][1]*matA[1][2])-(matA[0][2]*matA[1][1]);
+        h=(matA[0][2]*matA[1][0])-(matA[0][0]*matA[1][2]);
+        u=(matA[0][0]*matA[1][1])-(matA[0][1]*matA[1][0]);
 	
+	puts("\nCofactores de matA");
+	printf("%d, %d, %d, %d, %d, %d, %d, %d, %d ",a,b,c,d,e,f,g,h,u);
+        puts("\nMatriz cofactores");
+        int matCA[3][3]={
+                {a,b,c},
+                {d,e,f},
+                {g,h,u},
+        };
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++)
+                        printf("%d ",matCA[i][j]);
+        }
+	//Calcular la adjunta
+        int AdjmatA[3][3];
+        puts("\nMatriz transpuesta de matriz de cofactores");
+        //Transpuesta de matriz de cofactores de matA
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        AdjmatA[i][j]=matCA[j][i];
+                }
+        }
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++)
+                        printf("%d ",AdjmatA[i][j]);
+        }
+	//calculando la matriz inversa
+        float detmatA=detA;
+        printf("\ndetmatA: %f ",detmatA);
+        float idet=1/detmatA;
+        printf("\ninverso det: %f ",idet);
+
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                        matAI[i][j]=AdjmatA[i][j]*idet;
+                }
+        }
+        puts("\nMatriz inversa");
+        for(i=0;i<3;i++){
+                for(j=0;j<3;j++)
+                        printf("%f ",matAI[i][j]);
+        }
 
 	//Reduccion Gauss matA
 	float mata[3][3];
@@ -273,9 +338,11 @@ void main()
         //se muestra la matriz
         puts("\nReduccion Gauss-Jordan matB");
         for(i=0;i<3;i++){
-                for(j=0;j<3;j++)
+                for(j=0;j<3;j++){
                         printf("%f ",matb6[i][j]);
+		}
                 printf("\n");
 	}
 }
+	
 
