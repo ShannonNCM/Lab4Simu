@@ -165,6 +165,7 @@ void main()
 	
 	puts("\nCofactores de matA");
 	printf("%d, %d, %d, %d, %d, %d, %d, %d, %d ",a,b,c,d,e,f,g,h,u);
+	printf("\n");
         puts("\nMatriz cofactores");
         int matCA[3][3]={
                 {a,b,c},
@@ -175,9 +176,10 @@ void main()
                 for(j=0;j<3;j++)
                         printf("%d ",matCA[i][j]);
         }
+	printf("\n");
 	//Calcular la adjunta
         int AdjmatA[3][3];
-        puts("\nMatriz transpuesta de matriz de cofactores");
+        puts("\nMatriz adjunta de matA");
         //Transpuesta de matriz de cofactores de matA
         for(i=0;i<3;i++){
                 for(j=0;j<3;j++){
@@ -188,22 +190,24 @@ void main()
                 for(j=0;j<3;j++)
                         printf("%d ",AdjmatA[i][j]);
         }
+	printf("\n");
 	//calculando la matriz inversa
         float detmatA=detA;
-        printf("\ndetmatA: %f ",detmatA);
+        printf("\nDeterminante de matA: %f ",detmatA);
         float idet=1/detmatA;
-        printf("\ninverso det: %f ",idet);
-
+        printf("\nInverso del determinante: %f ",idet);
+	printf("\n");
         for(i=0;i<3;i++){
                 for(j=0;j<3;j++){
                         matAI[i][j]=AdjmatA[i][j]*idet;
                 }
         }
-        puts("\nMatriz inversa");
+        puts("\nMatriz inversa de matA");
         for(i=0;i<3;i++){
                 for(j=0;j<3;j++)
                         printf("%f ",matAI[i][j]);
         }
+	printf("\n");
 
 	//Reduccion Gauss matA
 	float mata[3][3];
