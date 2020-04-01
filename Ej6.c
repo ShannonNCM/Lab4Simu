@@ -34,21 +34,21 @@ float fa(int x)
 //Funcion fb
 float fb(int x)
 {
-	float Fb;
+	long int Fb;
 	Fb=3/(x-1);
 	return Fb;
 }
 //Funcion fc
 float fc(int x)
 {
-	float Fc;
+	long int Fc;
 	Fc=((1/sqrt(5))*(pow((1+sqrt(5))/2,x)))-((1/sqrt(5))*(pow((1-sqrt(5))/2,x)));
 	return Fc;
 }
 //Funcion fd
 float fd(int x)
 {
-	float Fd;
+	long int Fd;
 	Fd=0.1*(3*(pow(2,x-2))+4);
 	return Fd;
 }
